@@ -86,7 +86,7 @@ xempl<!DOCTYPE html>
                 output.textContent = transcript;
 
                 // Envoi du texte au chatbot (remplace URL_N8N par l'URL de ton webhook n8n)
-                fetch("URL_N8N", {
+                fetch("https://hadfocss.app.n8n.cloud/webhook/1ebe62c9-6eee-4a4e-9be5-fc4e0f5e61b6/chat", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ message: transcript })
