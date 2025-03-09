@@ -62,47 +62,6 @@ xempl<!DOCTYPE html>
 	});
 </script>   
 	
-<!-- bouton micro -->
-	    <button id="start-recording">🎤 Parler</button>
-    <p id="output"></p>
-
-    <script>
-        const button = document.getElementById("start-recording");
-        const output = document.getElementById("output");
-
-        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        if (!SpeechRecognition) {
-            alert("Votre navigateur ne supporte pas la reconnaissance vocale.");
-        } else {
-            const recognition = new SpeechRecognition();
-            recognition.lang = "fr-FR";
-
-            button.addEventListener("click", () => {
-                recognition.start();
-            });
-
-            recognition.onresult = (event) => {
-                const transcript = event.results[0][0].transcript;
-                output.textContent = transcript;
-
-                // Envoi du texte au chatbot (remplace URL_N8N par l'URL de ton webhook n8n)
-                fetch("https://hadfocss.app.n8n.cloud/webhook/1ebe62c9-6eee-4a4e-9be5-fc4e0f5e61b6/chat", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ message: transcript })
-                })
-                .then(response => response.json())
-                .then(data => console.log("Réponse du chatbot :", data))
-                .catch(error => console.error("Erreur :", error));
-            };
-
-            recognition.onerror = (event) => {
-                console.error("Erreur de reconnaissance vocale :", event.error);
-            };
-        }
-    </script>
-	
-	
 	<!-- Navigation -->
     <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Main navigation">
         <div class="container">
