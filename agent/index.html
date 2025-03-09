@@ -38,6 +38,35 @@ xempl<!DOCTYPE html>
 
 	createChat({
 		webhookUrl: 'https://hadfocss.app.n8n.cloud/webhook/1ebe62c9-6eee-4a4e-9be5-fc4e0f5e61b6/chat'
+
+	webhookUrl: '',
+	webhookConfig: {
+		method: 'POST',
+		headers: {}
+	},
+	target: '#n8n-chat',
+	mode: 'window',
+	chatInputKey: 'chatInput',
+	chatSessionKey: 'sessionId',
+	metadata: {},
+	showWelcomeScreen: false,
+	defaultLanguage: 'en',
+	initialMessages: [
+		'Bonjour ! 👋',
+		'Mon nom est Léa.'
+		'Comment puis-je vous aider ?'
+
+	],
+	i18n: {
+		en: {
+			title: 'La FOCSS',
+			subtitle: "Hospitalisation à domicile.",
+			footer: '',
+			getStarted: 'Nouvelle conversation',
+			inputPlaceholder: 'Poser votre question.',
+		},
+	},
+});
 	});
 </script>
 	<!-- Navigation -->
